@@ -1,0 +1,43 @@
+
+<div class="user-list" id="user-list">
+    <h2>
+      Users List
+      <input type="text" placeholder="Search User Name" [(ngModel)]="searchQuery" class="search-bar" />
+    </h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Check-In</th>
+          <th>Check-Out</th>
+          <th>Files</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers()">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.checkIn }}</td>
+          <td>{{ user.checkOut }}</td>
+          <td>
+            <div *ngIf="user.document && user.document.length > 0">
+              <ul>
+                <li *ngFor="let doc of user.document">{{ doc.fileName }}</li>
+              </ul>
+            </div>
+            <div *ngIf="!user.document || user.document.length === 0">
+              No Files
+            </div>
+          </td>
+          <td><button (click)="editUser(user)">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
