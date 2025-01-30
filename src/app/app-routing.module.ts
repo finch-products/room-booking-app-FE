@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // Default route
   // { path: 'dashboard', component: DashboardComponent },
   { path: 'form', component: FormComponent },
+  { path: 'form/:id', component: FormComponent },
   { path: 'list', component: ListComponent },
   { path: 'report', component: ReportComponent },
   { path: '**', redirectTo: '/dashboard' }, // Wildcard route for undefined paths

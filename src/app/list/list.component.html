@@ -35,7 +35,11 @@
               No Files
             </div>
           </td>
-          <td><button (click)="editUser(user)">Edit</button></td>
+          <td><a [routerLink]="['/form', user.id]" (click)="editUser(user)">
+            <i class="fa-solid fa-edit" style="color:#3498db"></i>
+          </a>
+            <a (click)="deleteUser(user)"> <i class="fa-solid fa-trash" style="color: #e74c3c;"></i></a>
+          
         </tr>
       </tbody>
     </table>
