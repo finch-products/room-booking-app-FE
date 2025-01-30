@@ -130,6 +130,18 @@ export class ListComponent implements OnInit {
     this.selectedFiles = [];
   }
 
+  deleteUser(user:any){
+    this.user = { ...user };
+    if (confirm("Are you sure you want to delete?")) {
+      this.http.delete(`http://localhost:3000/customers/${this.user.id}`).subscribe(()=>{
+        this.showMessage('User deleted successfully!', 'success');
+        this.loadUsers();
+
+      })
+      console.log("Customer deleted");
+    }
+  }
+
   // removeFile(file: any): void {
   //   this.user.document = this.user.document.filter((f: any) => f !== file);
   // }
